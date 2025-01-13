@@ -2,99 +2,60 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { ChevronRightIcon } from '@heroicons/react/24/outline';
 
-type NoticeType = 'warning' | 'info' | 'success';
-
-interface Notice {
+interface ProductNotice {
   id: string;
   title: string;
-  content: string;
-  date: string;
-  type: NoticeType;
   link: string;
 }
 
-const notices: Notice[] = [
+const productNotices: ProductNotice[] = [
   {
     id: '1',
-    title: '产品召回通知',
-    content: '部分 HEMNES 汉尼斯 系列产品因安全问题需要召回',
-    date: '2024-01-15',
-    type: 'warning',
-    link: '/notices/recall-hemnes',
+    title: '宜家宜布召回部分VARMFRONT 旺芙朗 移动电源',
+    link: '#'
   },
   {
     id: '2',
-    title: '价格调整通知',
-    content: '因原材料成本变动，部分产品价格将于2024年2月1日起调整',
-    date: '2024-01-10',
-    type: 'info',
-    link: '/notices/price-adjustment',
+    title: '宜家正在召回ASKSTORM 奥斯通40W USB充电器 深灰色',
+    link: '#'
   },
   {
     id: '3',
-    title: '新品上市预告',
-    content: '2024春季新品系列即将上市，敬请期待',
-    date: '2024-01-05',
-    type: 'success',
-    link: '/notices/new-arrivals',
+    title: '由于墙壁安装配件潜在破裂风险，宜家扩大召回维修LETTAN 莱唐镜子的范围',
+    link: '#'
   },
+  {
+    id: '4',
+    title: '宜家在中国大陆市场对两款商品开展产品信息标签修改改行动，以符合全地市场对最高使用温度提示的要求',
+    link: '#'
+  },
+  {
+    id: '5',
+    title: '因有造成呼吸困难的潜在风险，宜家宜布召回BLAVINGAD 布洛凡格 钓鱼游戏',
+    link: '#'
+  }
 ];
 
-const typeStyles: Record<NoticeType, string> = {
-  warning: 'bg-yellow-50 border-yellow-400 text-yellow-800',
-  info: 'bg-blue-50 border-blue-400 text-blue-800',
-  success: 'bg-green-50 border-green-400 text-green-800',
-};
-
-export default function ProductNotices() {
+const ProductNotices: React.FC = () => {
   return (
-    <section className="py-12 px-4">
-      <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold mb-8">产品信息及通知</h2>
-          
-          <div className="space-y-4">
-            {notices.map((notice) => (
-              <Link
-                key={notice.id}
-                href={notice.link}
-                className={`block p-4 border-l-4 rounded-r-lg hover:shadow-md transition-shadow ${typeStyles[notice.type]}`}
-              >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="font-bold mb-1">{notice.title}</h3>
-                    <p className="text-sm opacity-90">{notice.content}</p>
-                  </div>
-                  <time className="text-sm opacity-75">{notice.date}</time>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <Link
-              href="/notices"
-              className="inline-flex items-center text-gray-600 hover:text-gray-900"
-            >
-              查看全部通知
-              <svg
-                className="w-5 h-5 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </Link>
-          </div>
-        </div>
+    <section className="w-[1280px] mx-auto my-10">
+      <h2 className="text-xl font-bold mb-4">产品信息及通知</h2>
+      <div className="flex flex-col">
+        {productNotices.map((notice) => (
+          <Link 
+            key={notice.id}
+            href={notice.link}
+            className="group flex items-center justify-between h-[24px] my-[20px]"
+          >
+            <span className="text-[14px] text-[#111] font-bold leading-[22px] pr-10 group-hover:underline">{notice.title}</span>
+            <ChevronRightIcon className="h-4 w-4 text-gray-400 group-hover:text-gray-600" />
+          </Link>
+        ))}
       </div>
     </section>
   );
-} 
+};
+
+export default ProductNotices; 
