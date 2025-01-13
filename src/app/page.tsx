@@ -3,7 +3,6 @@ import Header from '@/components/layout/Header/Header';
 import Navigation from '@/components/layout/Navigation/Navigation';
 import Banner from '@/components/home/Banner/Banner';
 import RecentRecommend from '@/components/home/RecentRecommend/RecentRecommend';
-import ServiceEntrance from '@/components/home/ServiceEntrance/ServiceEntrance';
 import HotSales from '@/components/home/HotSales/HotSales';
 import NewYearAtmosphere from '@/components/home/NewYearAtmosphere/NewYearAtmosphere';
 import ExploreRooms from '@/components/home/ExploreRooms/ExploreRooms';
@@ -21,7 +20,6 @@ export default function Home() {
         <main>
           <Banner />
           <RecentRecommend />
-          <ServiceEntrance />
           <HotSales />
           <NewYearAtmosphere />
           <ExploreRooms />
