@@ -43,12 +43,6 @@ const tipItems: TipItem[] = [
     backgroundColor: '#00853E'
   },
   {
-    id: '5',
-    title: '日落工作室',
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb3?auto=format&fit=crop&w=800&h=1000&q=80',
-    link: '/sustainable/studio'
-  },
-  {
     id: '6',
     title: '潜海之梦',
     image: 'https://images.unsplash.com/photo-1582610116397-edb318620f90?auto=format&fit=crop&w=800&h=1000&q=80',

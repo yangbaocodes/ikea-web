@@ -38,18 +38,6 @@ const roomItems: RoomItem[] = [
     link: '/rooms/balcony'
   },
   {
-    id: '5',
-    name: '户外',
-    image: 'https://images.unsplash.com/photo-1600566752547-6d0bbf809e5c?auto=format&fit=crop&w=800&h=1000&q=80',
-    link: '/rooms/outdoor'
-  },
-  {
-    id: '6',
-    name: '卧室',
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb3?auto=format&fit=crop&w=800&h=1000&q=80',
-    link: '/rooms/bedroom'
-  },
-  {
     id: '7',
     name: '客厅',
     image: 'https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=800&h=1000&q=80',

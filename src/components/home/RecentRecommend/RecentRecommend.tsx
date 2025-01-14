@@ -21,7 +21,7 @@ interface RecommendItem {
 const recommendItems: RecommendItem[] = [
   {
     id: '1',
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb3?auto=format&fit=crop&w=800&h=800&q=80',
+    image: '/images/products/fossta-doormat.gif',
     title: 'FOSSTA 弗斯塔',
     subtitle: '门垫, 橙子',
     description: '全新限定系列，开启新春好彩头',
@@ -32,7 +32,7 @@ const recommendItems: RecommendItem[] = [
   },
   {
     id: '2',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&h=800&q=80',
+    image: '/images/products/bekvam-stepladder.jpg',
     title: 'BEKVÄM 贝卡姆',
     subtitle: '梯子 3步, 黑色',
     description: '2024.11.28-2025.1.27，数量有限，售完即止',
@@ -44,7 +44,7 @@ const recommendItems: RecommendItem[] = [
   },
   {
     id: '3',
-    image: 'https://images.unsplash.com/photo-1600369672770-985fd30004eb?auto=format&fit=crop&w=800&h=800&q=80',
+    image: '/images/products/hornmal-throw-pink.jpg',
     title: 'HORNMAL 霍恩玛',
     subtitle: '休闲毯, 淡粉红色, 130x170厘米',
     description: '用更低的价格，打造更美好的日常生活',
@@ -56,7 +56,7 @@ const recommendItems: RecommendItem[] = [
   },
   {
     id: '4',
-    image: 'https://images.unsplash.com/photo-1600369672770-985fd30004eb?auto=format&fit=crop&w=800&h=800&q=80',
+    image: '/images/products/hornmal-throw-alt.jpg',
     title: 'HORNMAL 霍恩玛',
     subtitle: '休闲毯, 淡粉红色',
     description: '用更低的价格，打造更美好的日常生活',

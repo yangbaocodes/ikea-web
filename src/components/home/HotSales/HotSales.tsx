@@ -30,21 +30,21 @@ const hotSaleItems: HotSaleItem[] = [
         id: '1',
         name: 'MALM 马尔姆',
         price: 299.00,
-        image: '/images/placeholder.jpg',
+        image: '/images/products/malm-1.jpg',
         link: '/products/malm-1'
       },
       {
         id: '2',
         name: 'MALM 马尔姆',
         price: 699.00,
-        image: '/images/placeholder.jpg',
+        image: '/images/products/malm-2.jpg',
         link: '/products/malm-2'
       },
       {
         id: '3',
         name: 'KULLEN 库伦',
         price: 199.00,
-        image: '/images/placeholder.jpg',
+        image: '/images/products/kullen-1.jpg',
         link: '/products/kullen-1'
       }
     ]
@@ -59,21 +59,21 @@ const hotSaleItems: HotSaleItem[] = [
         id: '1',
         name: 'PJÄTTERYD 耶特瑞德',
         price: 199.00,
-        image: '/images/placeholder.jpg',
+        image: '/images/products/pjatteryd-1.jpg',
         link: '/products/pjatteryd-1'
       },
       {
         id: '2',
         name: 'BJÖRKSTA 约克斯塔',
         price: 299.00,
-        image: '/images/placeholder.jpg',
+        image: '/images/products/bjorksta-1.jpg',
         link: '/products/bjorksta-1'
       },
       {
         id: '3',
         name: 'GRÖNBY 格伦比',
         price: 399.00,
-        image: '/images/placeholder.jpg',
+        image: '/images/products/gronby-1.jpg',
         link: '/products/gronby-1'
       }
     ]
@@ -88,21 +88,21 @@ const hotSaleItems: HotSaleItem[] = [
         id: '1',
         name: 'MULIG 穆利格',
         price: 79.00,
-        image: '/images/placeholder.jpg',
+        image: '/images/products/mulig-1.jpg',
         link: '/products/mulig-1'
       },
       {
         id: '2',
         name: 'NIKKEBY 尼克比',
         price: 199.00,
-        image: '/images/placeholder.jpg',
+        image: '/images/products/nikkeby-1.jpg',
         link: '/products/nikkeby-1'
       },
       {
         id: '3',
         name: 'RIGGA 瑞加',
         price: 99.00,
-        image: '/images/placeholder.jpg',
+        image: '/images/products/rigga-1.jpg',
         link: '/products/rigga-1'
       }
     ]
@@ -117,21 +117,21 @@ const hotSaleItems: HotSaleItem[] = [
         id: '1',
         name: 'KUGGIS 库吉斯',
         price: 49.00,
-        image: '/images/placeholder.jpg',
+        image: '/images/products/kuggis-1.jpg',
         link: '/products/kuggis-1'
       },
       {
         id: '2',
         name: 'SAMLA 萨姆拉',
         price: 29.00,
-        image: '/images/placeholder.jpg',
+        image: '/images/products/samla-1.jpg',
         link: '/products/samla-1'
       },
       {
         id: '3',
         name: 'VARIERA 瓦瑞拉',
         price: 39.00,
-        image: '/images/placeholder.jpg',
+        image: '/images/products/variera-1.jpg',
         link: '/products/variera-1'
       }
     ]
