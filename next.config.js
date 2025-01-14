@@ -4,11 +4,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**',
+        hostname: 'www.ikea.cn',
+        pathname: '/cn/zh/images/**',
       },
     ],
-  },
-  experimental: {
+    unoptimized: true,
   },
 }
 
