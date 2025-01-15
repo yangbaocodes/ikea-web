@@ -1,290 +1,127 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ChevronLeftIcon, ChevronRightIcon } from '@/components/ui/Icons';
+import { useState } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-interface HotSaleItem {
-  id: string;
-  title: string;
-  items: {
-    id: string;
-    name: string;
-    price: number;
-    image: string;
-    link: string;
-  }[];
-  backgroundColor: string;
-  link: string;
-}
-
-const hotSaleItems: HotSaleItem[] = [
+const hotSalesCategories = [
   {
-    id: '1',
-    title: '抽屉柜',
-    backgroundColor: 'rgb(120, 113, 108)',
-    link: '/hot-sales/drawer-cabinet',
+    id: 1,
+    title: '热销榜-抽屉柜',
     items: [
-      {
-        id: '1',
-        name: 'MALM 马尔姆',
-        price: 299.00,
-        image: '/images/products/malm-1.jpg',
-        link: '/products/malm-1'
-      },
-      {
-        id: '2',
-        name: 'MALM 马尔姆',
-        price: 699.00,
-        image: '/images/products/malm-2.jpg',
-        link: '/products/malm-2'
-      },
-      {
-        id: '3',
-        name: 'KULLEN 库伦',
-        price: 199.00,
-        image: '/images/products/kullen-1.jpg',
-        link: '/products/kullen-1'
-      }
+      { id: 1, name: 'ALEX 阿来斯', price: '599', image: '/drawer1.jpg' },
+      { id: 2, name: 'MALM 马尔姆', price: '799', image: '/drawer2.jpg' },
+      { id: 3, name: 'HEMNES 汉尼斯', price: '999', image: '/drawer3.jpg' }
     ]
   },
   {
-    id: '2',
-    title: '装饰画',
-    backgroundColor: 'rgb(120, 113, 108)',
-    link: '/hot-sales/wall-art',
+    id: 2,
+    title: '热销榜-装饰画',
     items: [
-      {
-        id: '1',
-        name: 'PJÄTTERYD 耶特瑞德',
-        price: 199.00,
-        image: '/images/products/pjatteryd-1.jpg',
-        link: '/products/pjatteryd-1'
-      },
-      {
-        id: '2',
-        name: 'BJÖRKSTA 约克斯塔',
-        price: 299.00,
-        image: '/images/products/bjorksta-1.jpg',
-        link: '/products/bjorksta-1'
-      },
-      {
-        id: '3',
-        name: 'GRÖNBY 格伦比',
-        price: 399.00,
-        image: '/images/products/gronby-1.jpg',
-        link: '/products/gronby-1'
-      }
+      { id: 1, name: 'PJÄTTERYD 耶特瑞德', price: '199', image: '/art1.jpg' },
+      { id: 2, name: 'BJÖRKSTA 约克斯塔', price: '299', image: '/art2.jpg' },
+      { id: 3, name: 'GRÖNBY 格伦比', price: '399', image: '/art3.jpg' }
     ]
   },
   {
-    id: '3',
-    title: '晾衣架',
-    backgroundColor: 'rgb(120, 113, 108)',
-    link: '/hot-sales/clothes-rack',
+    id: 3,
+    title: '热销榜-晾衣架',
     items: [
-      {
-        id: '1',
-        name: 'MULIG 穆利格',
-        price: 79.00,
-        image: '/images/products/mulig-1.jpg',
-        link: '/products/mulig-1'
-      },
-      {
-        id: '2',
-        name: 'NIKKEBY 尼克比',
-        price: 199.00,
-        image: '/images/products/nikkeby-1.jpg',
-        link: '/products/nikkeby-1'
-      },
-      {
-        id: '3',
-        name: 'RIGGA 瑞加',
-        price: 99.00,
-        image: '/images/products/rigga-1.jpg',
-        link: '/products/rigga-1'
-      }
-    ]
-  },
-  {
-    id: '4',
-    title: '收纳盒',
-    backgroundColor: 'rgb(120, 113, 108)',
-    link: '/hot-sales/storage-box',
-    items: [
-      {
-        id: '1',
-        name: 'KUGGIS 库吉斯',
-        price: 49.00,
-        image: '/images/products/kuggis-1.jpg',
-        link: '/products/kuggis-1'
-      },
-      {
-        id: '2',
-        name: 'SAMLA 萨姆拉',
-        price: 29.00,
-        image: '/images/products/samla-1.jpg',
-        link: '/products/samla-1'
-      },
-      {
-        id: '3',
-        name: 'VARIERA 瓦瑞拉',
-        price: 39.00,
-        image: '/images/products/variera-1.jpg',
-        link: '/products/variera-1'
-      }
+      { id: 1, name: 'MULIG 穆利格', price: '79', image: '/rack1.jpg' },
+      { id: 2, name: 'RIGGA 瑞加', price: '99', image: '/rack2.jpg' },
+      { id: 3, name: 'FROST 弗罗斯特', price: '129', image: '/rack3.jpg' }
     ]
   }
-];
+]
 
 export default function HotSales() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const totalItems = hotSaleItems.length;
-  const maxIndex = Math.max(0, totalItems - 3);
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
 
-  const handleScroll = (direction: 'left' | 'right') => {
-    const newIndex = direction === 'left'
-      ? Math.max(0, currentIndex - 1)
-      : Math.min(maxIndex, currentIndex + 1);
-    setCurrentIndex(newIndex);
-  };
+  const scroll = (direction: 'left' | 'right') => {
+    if (direction === 'left' && currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1)
+    } else if (direction === 'right' && currentIndex < hotSalesCategories.length - 1) {
+      setCurrentIndex(currentIndex + 1)
+    }
+  }
+
+  const showLeftButton = currentIndex > 0
+  const showRightButton = currentIndex < hotSalesCategories.length - 1
 
   return (
-    <section className="py-8">
-      <div className="container mx-auto">
-        <div 
-          className="relative"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          {/* 商品列表容器 */}
-          <div className="w-[1232px] mx-auto overflow-hidden">
-            {/* 左右切换按钮 */}
-            {isHovered && (
-              <>
-                {currentIndex > 0 && (
-                  <button
-                    onClick={() => handleScroll('left')}
-                    className="absolute left-[150px] top-[200px] z-10 w-12 h-12 flex items-center justify-center bg-black/60 hover:bg-black/80 transition-colors rounded-full -translate-x-1/2"
-                    aria-label="上一页"
-                  >
-                    <ChevronLeftIcon className="w-6 h-6 text-white" />
-                  </button>
-                )}
-                {currentIndex < maxIndex && (
-                  <button
-                    onClick={() => handleScroll('right')}
-                    className="absolute right-[70px] top-[200px] z-10 w-12 h-12 flex items-center justify-center bg-black/60 hover:bg-black/80 transition-colors rounded-full -translate-x-1/2"
-                    aria-label="下一页"
-                  >
-                    <ChevronRightIcon className="w-6 h-6 text-white" />
-                  </button>
-                )}
-              </>
-            )}
-
+    <div
+      className="relative py-12"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="container mx-auto px-4">
+        <h2 className="text-2xl font-bold mb-8">热销榜</h2>
+        <div className="flex transition-transform duration-300" 
+             style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+          {hotSalesCategories.map((category) => (
             <div
-              className="flex gap-[20.5px] transition-transform duration-300"
-              style={{
-                transform: `translateX(-${currentIndex * (397 + 20.5)}px)`,
-                width: `${(397 + 20.5) * hotSaleItems.length - 20.5}px`
-              }}
+              key={category.id}
+              className="flex-none w-full"
             >
-              {hotSaleItems.map((category) => (
-                <div
-                  key={category.id}
-                  className="flex-none w-[397px] h-[399px] bg-white"
-                >
-                  {/* 标题区域 */}
-                  <Link 
-                    href={category.link}
-                    className="block h-[120px] relative group"
-                    style={{ backgroundColor: category.backgroundColor }}
-                  >
-                    <div className="absolute inset-0 p-6 flex items-center justify-between text-white">
-                      <div>
-                        <div className="text-sm mb-1">热销榜</div>
-                        <div className="text-2xl font-bold">{category.title}</div>
+              <div className="bg-white rounded-lg overflow-hidden shadow-lg p-6">
+                <h3 className="text-xl font-semibold mb-6">{category.title}</h3>
+                <div className="space-y-4">
+                  {category.items.map((item, index) => (
+                    <div key={item.id} className="flex items-center gap-4">
+                      <div className="flex-none w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center font-semibold">
+                        {index + 1}
                       </div>
-                      <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                        <span className="text-white">→</span>
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-20 h-20 object-cover rounded"
+                      />
+                      <div>
+                        <h4 className="font-medium">{item.name}</h4>
+                        <p className="text-red-600">¥{item.price}</p>
                       </div>
                     </div>
-                  </Link>
-
-                  {/* 商品列表 */}
-                  <div className="divide-y h-[279px] overflow-hidden">
-                    {category.items.map((item, index) => (
-                      <Link
-                        key={item.id}
-                        href={item.link}
-                        className="flex items-center p-4 hover:bg-gray-50 transition-colors h-[93px]"
-                      >
-                        {/* 排名标签 */}
-                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-sm font-medium mr-4 ${
-                          index === 0 ? 'bg-yellow-400 text-white' :
-                          index === 1 ? 'bg-gray-300 text-gray-700' :
-                          'bg-orange-400 text-white'
-                        }`}>
-                          {index + 1}
-                        </div>
-
-                        {/* 商品图片 */}
-                        <div className="relative w-[72px] h-[72px] mr-4">
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-
-                        {/* 商品信息 */}
-                        <div className="flex-1">
-                          <h3 className="text-base mb-2">{item.name}</h3>
-                          <div className="text-sm">
-                            <span className="text-xs align-top">¥</span>
-                            <span className="font-medium">{Math.floor(item.price)}</span>
-                            {item.price % 1 !== 0 && (
-                              <span className="text-xs">.{(item.price % 1).toFixed(2).slice(2)}</span>
-                            )}
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* 底部指示器 */}
-          {maxIndex > 0 && (
-            <div className="mt-12">
-              <div className="w-[1232px] mx-auto">
-                <div className="w-[1232px] flex">
-                  {Array.from({ length: maxIndex + 1 }).map((_, index) => (
-                    <button
-                      key={index}
-                      className={`h-[2px] flex-1 transition-all duration-300 ${
-                        currentIndex === index 
-                          ? 'bg-black' 
-                          : 'bg-gray-200'
-                      }`}
-                      onClick={() => {
-                        setCurrentIndex(index);
-                      }}
-                      aria-label={`滚动到第 ${index + 1} 页`}
-                    />
                   ))}
                 </div>
               </div>
             </div>
-          )}
+          ))}
+        </div>
+
+        {/* Navigation Buttons */}
+        {showLeftButton && (
+          <button
+            onClick={() => scroll('left')}
+            className={`absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg transition-opacity ${
+              isHovered ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+        )}
+        {showRightButton && (
+          <button
+            onClick={() => scroll('right')}
+            className={`absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg transition-opacity ${
+              isHovered ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+        )}
+
+        {/* Indicators */}
+        <div className="flex justify-center mt-6 space-x-2">
+          {hotSalesCategories.map((_, index) => (
+            <div
+              key={index}
+              className={`h-1 rounded-full transition-all duration-300 ${
+                index === currentIndex ? 'w-8 bg-gray-800' : 'w-2 bg-gray-300'
+              }`}
+            />
+          ))}
         </div>
       </div>
-    </section>
-  );
+    </div>
+  )
 } 
