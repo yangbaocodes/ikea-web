@@ -55,17 +55,20 @@ src/
 ## 开始使用
 
 1. 克隆项目
+
 ```bash
-git clone [repository-url]
+git clone https://github.com/yangbaocodes/ikea-web.git
 cd ikea-web
 ```
 
 2. 安装依赖
+
 ```bash
 npm install
 ```
 
 3. 启动开发服务器
+
 ```bash
 npm run dev
 ```
@@ -84,11 +87,11 @@ npm start
 
 ## 主要功能
 
-- [ ] 用户认证
-- [ ] 商品展示
-- [ ] 购物车
-- [ ] 订单管理
-- [ ] 个人中心
+- [ ]  用户认证
+- [ ]  商品展示
+- [ ]  购物车
+- [ ]  订单管理
+- [ ]  个人中心
 
 ## 贡献指南
 
